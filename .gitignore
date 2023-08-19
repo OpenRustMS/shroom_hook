@@ -1,0 +1,17 @@
+/target
+/Cargo.lock
+**/target
+
+# Env files
+*.env
+
+# sqlite databases
+*.db
+
+# PCap logs
+*.pcapng
+
+# Keys
+keys/**
+*.svg
+*.png
