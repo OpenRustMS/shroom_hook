@@ -18,19 +18,26 @@ default = []
 anyhow = "1"
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"
-detour = { git = "https://github.com/veeenu/detour-rs" }
+retour = { version = "0.3", features = ["static-detour", "thiscall-abi"] }
 region = "3"
 log = "0.4"
 paste = "1"
 bitflags = "2"
 simplelog = "0.12"
 hudhook = { version = "0.4", optional = true }
-imgui = { version = "0.11", optional = true}
+imgui = { version = "0.11", optional = true }
 const_format = "0.2"
+quinn-udp = "0.4"
+quinn-proto = "0.10"
+ring = "0.16"
+bytes = "1"
+bytemuck = { version = "1.14.0", features = ["derive"] }
 
 [dependencies.windows]
 version = "0.51"
 features = [
+  "implement",
+  "Win32_System_Diagnostics_Debug",
   "Win32_System_LibraryLoader",
   "Win32_Storage_FileSystem",
   "Win32_Foundation",
@@ -46,6 +53,11 @@ features = [
   "Win32_Security",
   "Win32_System_SystemInformation",
   "Win32_UI_Shell",
-  "Win32_Graphics_Direct3D9"
+  "Win32_Graphics_Direct3D9",
+  "Win32_Networking_WinSock",
+  "Win32_System_Com",
+  "Win32_System_Ole",
+  "Win32_System_Variant",
+  "Win32_System_Kernel",
+  "Win32_System_Threading"
 ]
-

@@ -1,12 +1,10 @@
-use std::{arch::asm, ffi::c_void, sync::LazyLock};
+use std::{arch::asm, ffi::c_void};
 
-use detour::GenericDetour;
 
 use crate::{
     config::addr,
     packet_struct::{PacketStructElem, RECV_PACKET_CTX, SEND_PACKET_CTX},
-    ret_addr, return_address, static_ms_fn_hook,
-    ztl::{zarr::ZArray, zxstr::ZXString8},
+    ret_addr, static_ms_fn_hook, ffi::{ZArray, ZXString8},
 };
 
 pub trait CPacket {

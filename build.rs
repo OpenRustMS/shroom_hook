@@ -1,3 +1,4 @@
+
 fn main() {
     let link_arg = if cfg!(target_env = "msvc") {
         "/DEF:exports.def"

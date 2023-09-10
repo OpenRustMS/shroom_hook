@@ -34,13 +34,19 @@ pub mod addr95 {
 
 
     // Logo skipper
-    pub const LOGO_BRANCHES: usize = 0x60e2db;
+    pub const CLOGO_INIT: usize = 0x60e240;
+    pub const CLOGO_END: usize = 0x60bd00;
 
     // Keys
     pub const AES_BASIC_KEY: usize = 0xc560a0;
     pub const AES_USER_KEY: usize = 0xc560c0;
     pub const IG_SHUFFLE_KEY: usize = 0xc61a70;
     pub const IG_CIPHER_SEED: usize = 0xa1bf35 + 3;
+
+    // ZAPI
+    pub const ZAPI_LOADER_INIT: usize = 0x00b0b425;
+    pub const ZAPI_GET_TIME: usize = 0xc6dae4;
+
 }
 
 pub mod addr83 {
@@ -95,8 +101,8 @@ pub use addr95 as addr;
 
 // TODO load some settings from a config file
 
-pub const NAME: &str = "reMember - hook";
-pub const VERSION: &str = "1.2";
+pub const NAME: &str = "shroom - hook";
+pub const VERSION: &str = "1.4.7";
 
 // Used for dumping, maximum entry id
 pub const MAX_STR_POOL_LEN: usize = 6883;
@@ -119,7 +125,12 @@ pub fn packet_in_file() -> String {
     format!("{DATA_DIR}/{PACKET_IN_FILE}_{pid}.json")
 }
 
-pub const PACKET_TRACING: bool = true;
+pub const PACKET_TRACING: bool = false;
 pub const DUMP_STR_POOL: bool = false;
 pub const DUMP_KEYS: bool = false;
-pub const SKIP_LOGO: bool = false;
+pub const SKIP_LOGO: bool = true;
+pub const MULTI_CLIENT: bool = true;
+pub const AUTO_LOGIN: bool = true;
+pub const FIX_TIME: bool = true;
+
+pub const TIME_OFFSET: u32 = 30_000;
